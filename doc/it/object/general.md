@@ -1,54 +1,55 @@
-## Object Usage and Properties
+## Proprietà ed utilizzo degli Oggetti
 
-Everything in JavaScript acts like an object, with the only two exceptions being 
-[`null`](#core.undefined) and [`undefined`](#core.undefined).
+In JavaScript tutto si comporta come un oggetto, ad eccezione di [`null`](#core.undefined) e [`undefined`](#core.undefined).
+
 
     false.toString(); // 'false'
     [1, 2, 3].toString(); // '1,2,3'
-    
+
     function Foo(){}
     Foo.bar = 1;
     Foo.bar; // 1
 
-A common misconception is that number literals cannot be used as
-objects. That is because a flaw in JavaScript's parser tries to parse the *dot 
-notation* on a number as a floating point literal.
+Un malinteso comune è che i valori letterali numerici non possono essere
+utilizzati come oggetti. La causa è da ritrovarsi in un difetto nel parser di
+JavaScript, che interpreta il punto  della *dot notation* del numero come una
+virgola di un numero decimale.
 
-    2.toString(); // raises SyntaxError
+    2.toString(); // solleva SyntaxError
 
-There are a couple of workarounds that can be used to make number literals act
-as objects too.
+Ci sono un paio di soluzioni che possono essere utilizzate per
+consentire ai letterali numerici di agire come oggetti.
 
-    2..toString(); // the second point is correctly recognized
-    2 .toString(); // note the space left to the dot
-    (2).toString(); // 2 is evaluated first
+    2..toString();  // il secondo punto è correttamente riconosciuto
+    2 .toString();  // nota lo spazio a sinistra del punto
+    (2).toString(); // 2 è valutato per primo
 
 ### Objects as a Data Type
 
-Objects in JavaScript can also be used as [*Hashmaps*][1]; they mainly consist 
+Objects in JavaScript can also be used as [*Hashmaps*][1]; they mainly consist
 of named properties mapping to values.
 
-Using an object literal - `{}` notation - it is possible to create a 
-plain object. This new object [inherits](#object.prototype) from `Object.prototype` and 
+Using an object literal - `{}` notation - it is possible to create a
+plain object. This new object [inherits](#object.prototype) from `Object.prototype` and
 does not have [own properties](#object.hasownproperty) defined.
 
     var foo = {}; // a new empty object
 
     // a new object with a 'test' property with value 12
-    var bar = {test: 12}; 
+    var bar = {test: 12};
 
 ### Accessing Properties
 
 The properties of an object can be accessed in two ways, via either the dot
 notation or the square bracket notation.
-    
+
     var foo = {name: 'kitten'}
     foo.name; // kitten
     foo['name']; // kitten
-    
+
     var get = 'name';
     foo[get]; // kitten
-    
+
     foo.1234; // SyntaxError
     foo['1234']; // works
 
@@ -88,10 +89,10 @@ removed and is therefore missing from the output.
     };
 
 Object properties can be both notated as plain characters and as strings. Due to
-another mis-design in JavaScript's parser, the above will throw 
+another mis-design in JavaScript's parser, the above will throw
 a `SyntaxError` prior to ECMAScript 5.
 
-This error arises from the fact that `delete` is a *keyword*; therefore, it must be 
+This error arises from the fact that `delete` is a *keyword*; therefore, it must be
 notated as a *string literal* to ensure that it will be correctly interpreted by
 older JavaScript engines.
 
