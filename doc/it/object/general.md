@@ -24,18 +24,20 @@ consentire ai letterali numerici di agire come oggetti.
     2 .toString();  // nota lo spazio a sinistra del punto
     (2).toString(); // 2 è valutato per primo
 
-### Objects as a Data Type
+### Oggetti come tipo di dato
 
-Objects in JavaScript can also be used as [*Hashmaps*][1]; they mainly consist
-of named properties mapping to values.
+Gli oggetti in JavaScript possono essere usati anche come [*tabelle
+hash*][1]; esse consistono in chiavi che vengono messe in corrispondenza
+a valori.
 
-Using an object literal - `{}` notation - it is possible to create a
-plain object. This new object [inherits](#object.prototype) from `Object.prototype` and
-does not have [own properties](#object.hasownproperty) defined.
+Utilizzando un letterale di oggetto - notazione `{}` - è possibile
+creare un oggetto. Questo nuovo oggetto [eredita](#object.prototype) da
+`Object.prototype` e non ha [proprietà proprie](#object.hasownproperty)
+definite.
 
-    var foo = {}; // a new empty object
+    var foo = {}; // un nuovo oggetto vuoto
 
-    // a new object with a 'test' property with value 12
+    // un nuovo oggetto con una proprietà 'test' con valore 12
     var bar = {test: 12};
 
 ### Accessing Properties
